@@ -1,16 +1,25 @@
+import React, { Component } from 'react';
 
-import './App.css';
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {text: []};// Inicializamos el objeto text 
+  }
 
-function App() {
+  async componentDidMount() {
+    // Petición HTTP servidor JSON asyncrono
+    const resolve = await fetch("http://my-json-server.typicode.com/cesar-itacademy/fake-json/teatre")
+    const data = await resolve.json()
+    this.setState({text:data})// Guardamos el objeto data como text
+  }
 
-
-  return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+          <h1>Texts de teatre - Romeo i Julieta</h1>
+      </div>
+    );
+  }
 }
 
 export default App;
