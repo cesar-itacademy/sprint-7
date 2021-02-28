@@ -8,29 +8,28 @@ import { generate as id  } from "shortid";
 import Linea from './components/Linea/Linea'
 
 //StyledComponents 
-const StyledContainer = styled.div `
+const StyledBody = styled.body `
   height: 100vh;
-  
+  background-image: url("http://sertorio.synology.me/images/romeo-julieta.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("")
   `
 
 const StyledBox = styled.section `
-  display:flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 20rem;
   height: 30rem;
-  border-radius: 3rem;
-  border: 2px solid #2abd0c;
   background-color: #282c34;
-  opacity: 5;
+  opacity: 0.8;
   -webkit-box-shadow: 5px 7px 19px 16px rgba(0,0,0,0.84); 
   box-shadow: 5px 7px 19px 16px rgba(0,0,0,0.84);
   overflow: hidden;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 //Componente de clase
@@ -49,13 +48,13 @@ class App extends Component {
   render() {
     const obraTeatro = this.state.text 
     return (
-      <StyledContainer>
+      <StyledBody>
         <StyledBox>
             {obraTeatro.map(frase => (
                 <Linea fraseItem={frase} key={id()} />
             ))}
         </StyledBox>
-      </StyledContainer>
+      </StyledBody>
     );
   }
 }
