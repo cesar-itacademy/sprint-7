@@ -1,13 +1,37 @@
 import React, { Component } from 'react'
-
-//CSS
-import './App.css'
+import styled from 'styled-components'
 
 //Crear un id por cada elemento del array
 import { generate as id  } from "shortid";
 
 //Componentes
-import Linea from './components/Linea'
+import Linea from './components/Linea/Linea'
+
+//StyledComponents 
+const StyledContainer = styled.div `
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("")
+  `
+
+const StyledBox = styled.section `
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20rem;
+  height: 30rem;
+  border-radius: 3rem;
+  border: 2px solid #2abd0c;
+  background-color: #282c34;
+  opacity: 5;
+  -webkit-box-shadow: 5px 7px 19px 16px rgba(0,0,0,0.84); 
+  box-shadow: 5px 7px 19px 16px rgba(0,0,0,0.84);
+  overflow: hidden;
+`
 
 //Componente de clase
 class App extends Component {
@@ -25,14 +49,13 @@ class App extends Component {
   render() {
     const obraTeatro = this.state.text 
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Textos de teatre: Romeo i Julieta</h1>
+      <StyledContainer>
+        <StyledBox>
             {obraTeatro.map(frase => (
                 <Linea fraseItem={frase} key={id()} />
             ))}
-        </div>
-      </div>
+        </StyledBox>
+      </StyledContainer>
     );
   }
 }
