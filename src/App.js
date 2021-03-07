@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {generate as id} from 'shortid'
 
 //Crear un id por cada elemento del array
-//import { generate as id  } from "shortid";
+import { generate as id  } from "shortid";
 
 //Componentes
 import Linea from './components/Linea/index.js';
@@ -13,7 +12,7 @@ import { GlobalStyle, StyledBox } from './application/GlobalStyles';
 
 
 
-//Componente de clase
+//Componente funcional con hooks
 const App = () =>  {
    //Inicializamos estado del componente
   const [text, setText] = useState([]);
@@ -30,7 +29,7 @@ const App = () =>  {
   },[])
 
 
-    //Actualizar estado del componente index para mostrar la frase siguiente o la anterior
+  //Actualizar estado del componente index para mostrar la frase siguiente o la anterior
   const handlerIndexNext = () => {
     if (indexItem < (text.length - 1))
      setIndex(indexItem + 1)
@@ -42,9 +41,9 @@ const App = () =>  {
 
   //Renderizamos el componente Linea con los textos del JSON
   const obraTeatre = text.map((frase, index) => {
-    let selected
+    let selected //Pasar como prop el item seleccionado
     index ===indexItem ? selected= true : selected = false
-    return <Linea fraseItem={frase} key={id()} selected={selected} bgcolor='#4acd4b' />
+    return <Linea fraseItem={frase} key={id()} selected={selected} />
   }
   )
     
@@ -59,6 +58,5 @@ const App = () =>  {
       </>
     );
   }
-
 
 export default App

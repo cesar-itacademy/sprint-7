@@ -1,10 +1,10 @@
 import {StyledLinea} from './Linea.styled'
 
-const Linea = ({fraseItem, selected, bgcolor}) => {
-    console.log(fraseItem, selected)
+//Frase y si esta seleccionada o no
+const Linea = ({fraseItem, selected}) => {
     return (
         <>
-            <StyledLinea>{fraseItem}</StyledLinea>
+            <StyledLinea selected={selected}>{fraseItem}</StyledLinea>
         </>
     );
 }
