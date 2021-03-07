@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //Crear un id por cada elemento del array
 //import { generate as id  } from "shortid";
@@ -13,47 +13,44 @@ import { GlobalStyle, StyledBox } from './application/GlobalStyles';
 
 
 //Componente de clase
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text:[],
-      index: 0
-    }; //Inicializamos estado del componente
-  }
-
+const App = () =>  {
+   //Inicializamos estado del componente
+  const [text, setText] = useState([]);
+  const [index, setIndex] = useState(0);
+ 
   //Petición HTTP para descarga de JSON en servidor online
-  async componentDidMount() {
-    const response = await fetch("http://my-json-server.typicode.com/cesar-itacademy/fake-json/teatre");
-    const data = await response.json();
-    this.setState({text:data}); //Pasamos data como text al estado del componente
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch("http://my-json-server.typicode.com/cesar-itacademy/fake-json/teatre")
+      const data = await response.json()
+      setText(data)
+    }
+    getData()
+  },[])
+
+
+    //Actualizar estado del componente index para mostrar la frase siguiente o la anterior
+  const handlerIndexNext = () => {
+    if (index < (text.length - 1))
+     setIndex(index + 1)
   }
 
-  //Actualizar estado del componente index para mostrar la frase siguiente o la anterior
-  handlerIndexNext = () => {
-    if (this.state.index < (this.state.text.length - 1))
-     this.setState({index: this.state.index + 1})
-  }
-
-  handlerIndexPrevious = () => {
-    if (this.state.index > 0)
-    this.setState({index: this.state.index - 1})
+  const handlerIndexPrevious = () => {
+    if (index > 0) setIndex(index - 1)
   }
 
   //Renderizamos el componente Linea con los textos del JSON
-  render() {
-    const obraTeatro = this.state.text;
-    return (
+      return (
       <>
         <GlobalStyle />
-          <Boton title='<< Enrera' onClick={this.handlerIndexPrevious} />
-          <Boton title='Endavant >>' onClick={this.handlerIndexNext}  />
+          <Boton title='<< Enrera' onClick={handlerIndexPrevious} />
+          <Boton title='Endavant >>' onClick={handlerIndexNext}  />
           <StyledBox>
-              <Linea fraseItem={obraTeatro[this.state.index]} />
+              <Linea fraseItem={text[index]} />
           </StyledBox>
       </>
     );
   }
-}
+
 
 export default App;
