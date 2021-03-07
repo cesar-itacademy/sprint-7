@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/spring-8/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/spring-8/static/js/main.c95cdd17.chunk.js",
+    "main.js.map": "/spring-8/static/js/main.c95cdd17.chunk.js.map",
+    "runtime-main.js": "/spring-8/static/js/runtime-main.168d0572.js",
+    "runtime-main.js.map": "/spring-8/static/js/runtime-main.168d0572.js.map",
+    "static/js/2.0521eafe.chunk.js": "/spring-8/static/js/2.0521eafe.chunk.js",
+    "static/js/2.0521eafe.chunk.js.map": "/spring-8/static/js/2.0521eafe.chunk.js.map",
+    "index.html": "/spring-8/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/spring-8/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.0521eafe.chunk.js.LICENSE.txt": "/spring-8/static/js/2.0521eafe.chunk.js.LICENSE.txt",
+    "static/media/romeo-y-julieta.fadc98cb.svg": "/spring-8/static/media/romeo-y-julieta.fadc98cb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.168d0572.js",
+    "static/js/2.0521eafe.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.c95cdd17.chunk.js"
+  ]
+}
