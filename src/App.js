@@ -21,7 +21,7 @@ const App = () =>  {
   //Petición HTTP para descarga de JSON en servidor online
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("http://my-json-server.typicode.com/cesar-itacademy/fake-json/teatre")
+      const response = await fetch("https://my-json-server.typicode.com/cesar-itacademy/fake-json/teatre")
       const data = await response.json()
       setText(data)
     }
