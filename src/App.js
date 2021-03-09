@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-//Crear un id por cada elemento del array
-import { generate as id } from "shortid";
-
 //Componentes
 import Linea from "./components/Linea/index.js";
 import Boton from "./components/boton";
@@ -35,7 +32,7 @@ const App = () => {
   const obraTeatre = text.map((frase, index) => {
     let selected; //Pasar como prop el item seleccionado
     index === indexItem ? (selected = true) : (selected = false);
-    return <Linea fraseItem={frase} key={id()} selected={selected} />;
+    return <Linea fraseItem={frase} key={index} selected={selected} />;
   });
 
   return (
