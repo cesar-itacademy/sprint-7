@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+
 
 //Crear un id por cada elemento del array
 //import { generate as id  } from "shortid";
