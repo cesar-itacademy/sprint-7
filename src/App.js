@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 
 //CSS
@@ -32,6 +33,7 @@ class App extends Component {
                 <Linea fraseItem={frase} key={id()} />
             ))}
         </div>
+
       </div>
     );
   }
