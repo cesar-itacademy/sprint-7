@@ -1,14 +1,16 @@
 
 import React, { Component } from 'react'
 
-//CSS
-import './App.css'
-
 //Crear un id por cada elemento del array
 import { generate as id  } from "shortid";
 
 //Componentes
-import Linea from './components/Linea'
+import Linea from './components/linea'
+
+//StyledComponents 
+import { GlobalStyle, StyledBox } from './application/GlobalStyles'
+
+
 
 //Componente de clase
 class App extends Component {
@@ -26,15 +28,14 @@ class App extends Component {
   render() {
     const obraTeatro = this.state.text 
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Textos de teatre: Romeo i Julieta</h1>
-            {obraTeatro.map(frase => (
-                <Linea fraseItem={frase} key={id()} />
-            ))}
-        </div>
-
-      </div>
+      <>
+        <GlobalStyle />
+          <StyledBox>
+              {obraTeatro.map(frase => (
+                  <Linea fraseItem={frase} key={id()} />
+              ))}
+          </StyledBox>
+      </>
     );
   }
 }
